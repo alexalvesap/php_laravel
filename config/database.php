@@ -1,5 +1,5 @@
 <?php
-// $DATABASE_URL = parse_url('postgres://rfaydoxzkxiloh:e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6@ec2-54-163-245-44.compute-1.amazonaws.com:5432/ddi3elmvcspros');
+$DATABASE_URL = parse_url('postgres://ffqqabqzbrpvep:905f60e8b2bb52dda8edd45aa564f3fc85bf432434df4b24152b48aec7f61af7@ec2-54-235-86-226.compute-1.amazonaws.com:5432/d2o8jb46bipklj');
 
 return [
 
@@ -56,31 +56,31 @@ return [
             'engine' => null,
         ],
 
-            'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'projeto_dsw'),
-            'username' => env('DB_USERNAME', 'postgres'),
-            'password' => env('DB_PASSWORD', 'postgres'),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'schema' => 'public',
-            'sslmode' => 'prefer',
-        ],
-
-        // 'pgsql' => [
+        //     'pgsql' => [
         //     'driver' => 'pgsql',
-        //     'host' => $DATABASE_URL["ec2-54-163-245-44.compute-1.amazonaws.com"],
-        //     'port' => $DATABASE_URL["5432"],
-        //     'database' => ltrim($DATABASE_URL["ddi3elmvcspros"], "/"),
-        //     'username' => $DATABASE_URL["rfaydoxzkxiloh"],
-        //     'password' => $DATABASE_URL["e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6"],
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '5432'),
+        //     'database' => env('DB_DATABASE', 'projeto_dsw'),
+        //     'username' => env('DB_USERNAME', 'postgres'),
+        //     'password' => env('DB_PASSWORD', 'postgres'),
         //     'charset' => 'utf8',
         //     'prefix' => '',
         //     'schema' => 'public',
         //     'sslmode' => 'prefer',
         // ],
+
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'host' => $DATABASE_URL["ec2-54-235-86-226.compute-1.amazonaws.com"],
+            'port' => $DATABASE_URL["5432"],
+            'database' => ltrim($DATABASE_URL["d2o8jb46bipklj"], "/"),
+            'username' => $DATABASE_URL["ffqqabqzbrpvep"],
+            'password' => $DATABASE_URL["905f60e8b2bb52dda8edd45aa564f3fc85bf432434df4b24152b48aec7f61af7"],
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
