@@ -58,8 +58,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $DATABASE_URL["ec2-54-221-212-15.compute-1.amazonaws.com
-            "],
+            'host' => $DATABASE_URL["ec2-54-221-212-15.compute-1.amazonaws.com"],
             'port' => $DATABASE_URL["5432"],
             'database' => ltrim($DATABASE_URL["dd64p2ac87vfcf"], "/"),
             'username' => $DATABASE_URL["vzznpoxezumyom"],
