@@ -1,5 +1,5 @@
 <?php
-$DATABASE_URL = parse_url('postgres://rfaydoxzkxiloh:e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6@ec2-54-163-245-44.compute-1.amazonaws.com:5432/ddi3elmvcspros');
+// $DATABASE_URL = parse_url('postgres://rfaydoxzkxiloh:e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6@ec2-54-163-245-44.compute-1.amazonaws.com:5432/ddi3elmvcspros');
 
 return [
 
@@ -56,18 +56,31 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => [
+            'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $DATABASE_URL["ec2-54-163-245-44.compute-1.amazonaws.com"],
-            'port' => $DATABASE_URL["5432"],
-            'database' => ltrim($DATABASE_URL["ddi3elmvcspros"], "/"),
-            'username' => $DATABASE_URL["rfaydoxzkxiloh"],
-            'password' => $DATABASE_URL["e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6"],
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'projeto_dsw'),
+            'username' => env('DB_USERNAME', 'postgres'),
+            'password' => env('DB_PASSWORD', 'postgres'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
+
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'host' => $DATABASE_URL["ec2-54-163-245-44.compute-1.amazonaws.com"],
+        //     'port' => $DATABASE_URL["5432"],
+        //     'database' => ltrim($DATABASE_URL["ddi3elmvcspros"], "/"),
+        //     'username' => $DATABASE_URL["rfaydoxzkxiloh"],
+        //     'password' => $DATABASE_URL["e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6"],
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
