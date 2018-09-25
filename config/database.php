@@ -1,6 +1,11 @@
 <?php
-$DATABASE_URL = parse_url('postgres://vzznpoxezumyom:a06e7af177dc05ebcc3de107b30459dbfcb0ffadc8679d715ebf45ddf00c1b9a@ec2-54-221-212-15.compute-1.amazonaws.com:5432/dd64p2ac87vfcf
-');
+$url = parse_url(getenv("postgres://rfaydoxzkxiloh:e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6@ec2-54-163-245-44.compute-1.amazonaws.com:5432/ddi3elmvcspros
+"));
+
+$host = $url["ec2-54-163-245-44.compute-1.amazonaws.com"];
+$username = $url["rfaydoxzkxiloh"];
+$password = $url["e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6"];
+$database = substr($url["ddi3elmvcspros"], 1);
 return [
 
     /*
@@ -55,19 +60,28 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => $DATABASE_URL["ec2-54-221-212-15.compute-1.amazonaws.com"],
-            'port' => $DATABASE_URL["5432"],
-            'database' => ltrim($DATABASE_URL["dd64p2ac87vfcf"], "/"),
-            'username' => $DATABASE_URL["vzznpoxezumyom"],
-            'password' => $DATABASE_URL["a06e7af177dc05ebcc3de107b30459dbfcb0ffadc8679d715ebf45ddf00c1b9a"],
-            'charset' => 'utf8',
-            'prefix' => '',
-            'schema' => 'public',
-            'sslmode' => 'prefer',
-        ],
+        'pgsql' => array(
+            'driver'   => 'pgsql',
+            'host'     => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+        ),
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'host' => $DATABASE_URL["ec2-54-221-212-15.compute-1.amazonaws.com"],
+        //     'port' => $DATABASE_URL["5432"],
+        //     'database' => ltrim($DATABASE_URL["dd64p2ac87vfcf"], "/"),
+        //     'username' => $DATABASE_URL["vzznpoxezumyom"],
+        //     'password' => $DATABASE_URL["a06e7af177dc05ebcc3de107b30459dbfcb0ffadc8679d715ebf45ddf00c1b9a"],
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
         // 'pgsql' => [
         //     'driver' => 'pgsql',
         //     'host' => env('DB_HOST', '127.0.0.1'),
