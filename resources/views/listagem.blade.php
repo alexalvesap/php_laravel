@@ -1,17 +1,24 @@
 @extends('layouts.app')
 @section('content')
-<h1>Todas as perguntas</h1>
+<div class="card">
+    <div class="card-header">
+        <h2>Todas as perguntas</h2>
+    </div>
+</div>
 <hr>
-    @foreach($perguntas as $p)
-        <div class="list-group">
-            <h4>
-                <a href="/home/pergunta/{{$p->id}}">
-                        {{ $p->titulo }}
-                </a>
-            </h4>
-            <p> {{ $p->descricao }} </p>
-            <hr>
+@foreach($perguntas as $p)
+    <div class="card">
+        <h4>
+        <div class="card-header">
+            <a href="/home/pergunta/{{$p->id}}">
+                    {{ $p->titulo }}
+            </a>
         </div>
-    @endforeach
+        </h4>
+        <div class="card-body">
+            <p> {{ $p->descricao }} </p>
+        </div>
+    </div>
+    <hr>
+@endforeach
 @endsection
-   

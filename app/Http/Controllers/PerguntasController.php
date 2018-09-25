@@ -26,23 +26,17 @@ class PerguntasController extends Controller {
     }
 
     public function pergunta($id) { 
-        // $perguntas = Perguntas::find($id)->resposta()->where('pergunta_id', '=', $id)->first();
-        // $perguntas = Perguntas::with('resposta')->find($id);
-        // return var_dump($perguntas);
         $perguntas = Perguntas::find($id);
         $respostas = Respostas::where('pergunta_id', '=', $id)->get();
         return view('respostas', ['perguntas'=> $perguntas, 'respostas'=> $respostas]); 
-        // return var_dump($resposta);
     }
     
     public function responder() {
         $respostas = new Respostas(); 
         $respostas->resposta = Request::input('resposta');
         $respostas->pergunta_id = Request::input('id');
-
         $respostas->save();
         return redirect('/home')->withInput();
-        // return redirect('pergunta/{id}')->withInput();
     }
 
 }
