@@ -1,6 +1,5 @@
 <?php
-$url = parse_url(getenv("postgres://rfaydoxzkxiloh:e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6@ec2-54-163-245-44.compute-1.amazonaws.com:5432/ddi3elmvcspros
-"));
+$url = parse_url(getenv("postgres://rfaydoxzkxiloh:e8bcf78911109ab1cf09695ab99dcb8a89a3c42c8f4619b438e74573b29dbdb6@ec2-54-163-245-44.compute-1.amazonaws.com:5432/ddi3elmvcspros"));
 
 $host = $url["ec2-54-163-245-44.compute-1.amazonaws.com"];
 $username = $url["rfaydoxzkxiloh"];
@@ -20,7 +19,7 @@ return [
     */
 
     // 'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
